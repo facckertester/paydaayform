@@ -1,20 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Admin salary table</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>Таблица расчета ЗП</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        createHeader("Admin salary table", false);
-    });
-</script>
+<header>
+  <h1>Таблица расчета ЗП</h1>
+  <div class="header-controls">
+    <label class="theme-switch">
+      <input type="checkbox" id="themeToggle">
+      <span class="slider"></span>
+    </label>
+    <button onclick="goBack()" class="back-btn">Назад</button>
+  </div>
+</header>
 <main>
-    <p>Контент страницы Admin salary table</p>
+  <p>Таблица отображается здесь.</p>
 </main>
+<script src="script.js"></script>
 </body>
 </html>
