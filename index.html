@@ -1,32 +1,48 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Главная</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-<header>
-  <h1>Главная</h1>
-  <div class="header-controls">
-    <label class="theme-switch">
-      <input type="checkbox" id="themeToggle">
-      <span class="slider"></span>
-    </label>
-    
-  </div>
-</header>
-<main>
-  
-<a href="salary.html" class="button">Расчет ЗП</a>
-<a href="employees.html" class="button">Список сотрудников</a>
-<a href="report.html" class="button">Форма отчета</a>
-<a href="rules1.html" class="button">Правила 1</a>
-<a href="rules2.html" class="button">Правила 2</a>
-<a href="rules3.html" class="button">Правила 3</a>
-<a href="admin.html" class="button">Раздел для админов</a>
+  <header>
+    <h1>Главная</h1>
+    <div class="header-controls">
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle" />
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </header>
 
-</main>
-<script src="script.js"></script>
+  <main>
+    <section>
+      <h2>Полезное</h2>
+      <button onclick="location.href='salary.html'">Расчет ЗП</button>
+      <button onclick="location.href='employees.html'">Список сотрудников</button>
+      <button onclick="location.href='report.html'">Форма отчета отработанного дня</button>
+    </section>
+
+    <section>
+      <h2>Правила</h2>
+      <button onclick="loadDocInFrame('https://docs.google.com/document/d/1dpAnP8N7aNzYunocSK4gY8NY61Cb1vQyFeXUzPAHcRg/edit?embedded=true')">Правила 1</button>
+      <button onclick="loadDocInFrame('https://docs.google.com/document/d/18Fm3edk8kvqMqZF6sne9wdmVwPiwSKK2NYS2B3LvXmk/edit?embedded=true')">Правила 2</button>
+      <button onclick="loadDocInFrame('https://docs.google.com/document/d/1QFugb4EzEywLOcAStoqu7nEf1fQC0gDwD6ehB-PNUiQ/edit?embedded=true')">Правила 3</button>
+    </section>
+
+    <section>
+      <h2>Раздел для Админов</h2>
+      <button onclick="location.href='admin_salary_table.html'">Таблица расчета ЗП</button>
+      <button onclick="location.href='admin_payout.html'">Форма выдачи ЗП</button>
+      <button onclick="location.href='sale_card.html'">Sale Card</button>
+    </section>
+
+    <section id="doc-viewer" style="display:none; margin-top: 20px;">
+      <iframe id="doc-frame" width="100%" height="600px" style="border:1px solid #ccc;"></iframe>
+    </section>
+  </main>
 </body>
 </html>
