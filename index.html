@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Отчёт сотрудника</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>🧾 Отчёт сотрудника</h1>
+  </header>
+
+  <section id="controls">
+    <input type="text" id="name" placeholder="Имя">
+    <input type="text" id="id" placeholder="ID">
+    <button id="loadBtn">Загрузить данные</button>
+  </section>
+
+  <section id="summary"></section>
+
+  <section>
+    <h2>📍 По точкам</h2>
+    <table id="byPointsTable">
+      <thead><tr><th>Точка</th><th>Часы</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>📆 По датам</h2>
+    <table id="byDatesTable">
+      <thead><tr><th>Дата</th><th>Часы</th><th>Зарплата</th><th>Штрафы</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>🏆 Достижения</h2>
+    <div id="achievements"></div>
+  </section>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
