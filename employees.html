@@ -4,23 +4,35 @@
 <head>
   <meta charset="UTF-8">
   <title>Сотрудники</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Список сотрудников</h1>
-  <ul id="employeeList"></ul>
+  <div class="container">
+    <h1>Список сотрудников</h1>
+    <div id="chelyabinsk"><h2>Челябинск</h2><ul></ul></div>
+    <div id="ozersk"><h2>Озерск</h2><ul></ul></div>
+  </div>
   <script>
     async function loadEmployees() {
       const res = await fetch("https://script.google.com/macros/s/AKfycbzJwiw833DGXjiS7gH3vfLR4VIN3u1m1-qPpLP_LS3jPFaQ8qYNXSIqLFBK4z9UHVCC/exec?action=getEmployees");
       const employees = await res.json();
-      const list = document.getElementById("employeeList");
+      const chelList = document.querySelector("#chelyabinsk ul");
+      const ozeList = document.querySelector("#ozersk ul");
+
       employees.forEach(emp => {
+        if (!emp.id || /^[0-9]+$/.test(emp.id)) return; // пропустить ID из цифр
         const li = document.createElement("li");
         li.textContent = `${emp.name} (ID: ${emp.id})`;
-        list.appendChild(li);
+        if (emp.id.endsWith("Ч")) {
+          chelList.appendChild(li);
+        } else if (emp.id.endsWith("О")) {
+          ozeList.appendChild(li);
+        }
       });
     }
     loadEmployees();
   </script>
+  <script src="script.js"></script>
 </body>
 </html>
