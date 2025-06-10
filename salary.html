@@ -1,38 +1,26 @@
-<!DOCTYPE html><html lang="ru"><head>
-  <meta charset="UTF-8"><title>Расчет ЗП</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Расчет ЗП</title>
   <link rel="stylesheet" href="style.css">
-</head><body>
-  <div class="container">
-    <h1>Расчет ЗП</h1>
-    <input type="text" id="name" placeholder="Введите имя" />
-    <input type="text" id="id" placeholder="Введите ID" />
-    <button id="btnSalary">Показать зарплату</button>
-    <div id="result"></div>
-  </div>
+</head>
+<body>
+  <h1>Расчет ЗП</h1>
+  <input type="text" id="name" placeholder="Введите имя" />
+  <input type="text" id="id" placeholder="Введите ID" />
+  <button onclick="fetchSalary()">Показать зарплату</button>
+  <div id="result"></div>
   <script>
-    document.getElementById("btnSalary").addEventListener("click", async () => {
-      const name = document.getElementById("name").value.trim();
-      const id = document.getElementById("id").value.trim();
-      const url = `https://script.google.com/macros/s/AKfycbzJwiw833DGXjiS7gH3vfLR4VIN3u1m1-qPpLP_LS3jPFaQ8qYNXSIqLFBK4z9UHVCC/exec?action=getSalary&name=${encodeURIComponent(name)}&id=${encodeURIComponent(id)}`;
-      try {
-        const res = await fetch(url);
-        if (!res.ok) throw new Error(res.statusText);
-        const data = await res.json();
-        if (data.entries?.length > 0) {
-          let html = `<h2>Итоговая зарплата: ${data.totalSalary}₽</h2><table><thead><tr><th>Дата</th><th>Точка</th><th>Часы</th><th>Сумма</th></tr></thead><tbody>`;
-          data.entries.forEach(e => {
-            html += `<tr><td>${e.date}</td><td>${e.point}</td><td>${e.hours}</td><td>${e.salary}₽</td></tr>`;
-          });
-          html += "</tbody></table>";
-          document.getElementById("result").innerHTML = html;
-        } else {
-          document.getElementById("result").innerHTML = "<p>Данные не найдены.</p>";
-        }
-      } catch (err) {
-        document.getElementById("result").innerHTML = `<p>Ошибка: ${err.message}</p>`;
-        console.error(err);
-      }
-    });
+    async function fetchSalary() {
+      const name = document.getElementById("name").value;
+      const id = document.getElementById("id").value;
+      const res = await fetch(`https://script.google.com/macros/s/AKfycbzJwiw833DGXjiS7gH3vfLR4VIN3u1m1-qPpLP_LS3jPFaQ8qYNXSIqLFBK4z9UHVCC/exec?action=getSalary&name=${encodeURIComponent(name)}&id=${encodeURIComponent(id)}`);
+      const data = await res.json();
+      document.getElementById("result").innerText = `Зарплата: ${data.totalSalary}₽`;
+    }
   </script>
-</body></html>
+<script src="script.js"></script>
+</body>
+</html>
