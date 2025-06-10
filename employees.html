@@ -1,27 +1,25 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Сотрудники</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Список сотрудников</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Список сотрудников</h1>
-  <ul id="employeeList"></ul>
-  <script>
-    async function loadEmployees() {
-      const res = await fetch("https://script.google.com/macros/s/AKfycbzJwiw833DGXjiS7gH3vfLR4VIN3u1m1-qPpLP_LS3jPFaQ8qYNXSIqLFBK4z9UHVCC/exec?action=getEmployees");
-      const employees = await res.json();
-      const list = document.getElementById("employeeList");
-      employees.forEach(emp => {
-        const li = document.createElement("li");
-        li.textContent = `${emp.name} (ID: ${emp.id})`;
-        list.appendChild(li);
-      });
-    }
-    loadEmployees();
-  </script>
-<script src="script.js"></script>
+  <header>
+    <h1>Список сотрудников</h1>
+    <label class="theme-switch">
+      <input type="checkbox" id="theme-toggle">
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <main>
+    <div id="employee-list">Загрузка сотрудников...</div>
+    <button onclick="location.href='index.html'" class="back-btn">Назад</button>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
