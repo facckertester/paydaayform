@@ -1,25 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>admin.html</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-  <header>
-    <h1>Раздел администратора</h1>
-    <label class="theme-switch">
-      <input type="checkbox" id="theme-toggle">
-      <span class="slider"></span>
-    </label>
-  </header>
-
-  <main>
-    
-    <button onclick="location.href='index.html'" class="back-btn">Назад</button>
-  </main>
-
-  <script src="script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        createHeader("Admin", false);
+    });
+</script>
+<main>
+    <p>Контент страницы Admin</p>
+</main>
 </body>
 </html>
