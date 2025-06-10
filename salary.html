@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Расчет ЗП</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Расчет ЗП</h1>
+  <input type="text" id="name" placeholder="Введите имя" />
+  <input type="text" id="id" placeholder="Введите ID" />
+  <button onclick="fetchSalary()">Показать зарплату</button>
+  <div id="result"></div>
+  <script>
+    async function fetchSalary() {
+      const name = document.getElementById("name").value;
+      const id = document.getElementById("id").value;
+      const res = await fetch(`https://script.google.com/macros/s/AKfycbzJwiw833DGXjiS7gH3vfLR4VIN3u1m1-qPpLP_LS3jPFaQ8qYNXSIqLFBK4z9UHVCC/exec?action=getSalary&name=${encodeURIComponent(name)}&id=${encodeURIComponent(id)}`);
+      const data = await res.json();
+      document.getElementById("result").innerText = `Зарплата: ${data.totalSalary}₽`;
+    }
+  </script>
+</body>
+</html>
