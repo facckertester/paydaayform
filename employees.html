@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Сотрудники</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Список сотрудников</h1>
+  <ul id="employeeList"></ul>
+  <script>
+    async function loadEmployees() {
+      const res = await fetch("https://script.google.com/macros/s/AKfycbzJwiw833DGXjiS7gH3vfLR4VIN3u1m1-qPpLP_LS3jPFaQ8qYNXSIqLFBK4z9UHVCC/exec?action=getEmployees");
+      const employees = await res.json();
+      const list = document.getElementById("employeeList");
+      employees.forEach(emp => {
+        const li = document.createElement("li");
+        li.textContent = `${emp.name} (ID: ${emp.id})`;
+        list.appendChild(li);
+      });
+    }
+    loadEmployees();
+  </script>
+</body>
+</html>
