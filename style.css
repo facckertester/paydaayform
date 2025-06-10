@@ -1,103 +1,72 @@
-:root {
-    --bg-color-light: #ffffff;
-    --text-color-light: #000000;
-    --bg-color-dark: #1e1e1e;
-    --text-color-dark: #ffffff;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--bg-color-light);
-    color: var(--text-color-light);
-    transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
 }
-
-body.dark {
-    background-color: var(--bg-color-dark);
-    color: var(--text-color-dark);
-}
-
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #444;
-    color: white;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-.container {
-    padding: 1rem;
+main {
+  padding: 1em;
 }
-
-.form input, .form button {
-    display: block;
-    margin: 0.5rem 0;
-    padding: 0.5rem;
-    width: 100%;
-    max-width: 300px;
-}
-
 button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
 }
-
-button:hover {
-    background-color: #0056b3;
-}
-
 .theme-switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 24px;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
 }
-
 .theme-switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
-
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-    border-radius: 24px;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
 }
-
 .slider:before {
-    position: absolute;
-    content: "";
-    height: 18px;
-    width: 18px;
-    left: 3px;
-    bottom: 3px;
-    background-color: white;
-    transition: .4s;
-    border-radius: 50%;
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
 }
-
 input:checked + .slider {
-    background-color: #2196F3;
+  background-color: #2196F3;
 }
-
 input:checked + .slider:before {
-    transform: translateX(26px);
+  transform: translateX(26px);
+}
+.back-btn {
+  margin-top: 20px;
 }
 
-.back-button {
-    margin-left: 1rem;
-    color: white;
-    text-decoration: none;
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+}
+.dark-theme {
+  --bg: #1e1e1e;
+  --text: #ffffff;
 }
