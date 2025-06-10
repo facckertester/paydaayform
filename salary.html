@@ -1,20 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Salary</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>Расчет ЗП</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        createHeader("Salary", false);
-    });
-</script>
+<header>
+  <h1>Расчет ЗП</h1>
+  <div class="header-controls">
+    <label class="theme-switch">
+      <input type="checkbox" id="themeToggle">
+      <span class="slider"></span>
+    </label>
+    <button onclick="goBack()" class="back-btn">Назад</button>
+  </div>
+</header>
 <main>
-    <p>Контент страницы Salary</p>
+  
+<form id="salaryForm">
+  <input type="text" id="nameInput" placeholder="Введите имя" required>
+  <input type="text" id="idInput" placeholder="Введите ID" required>
+  <button type="submit">Показать зарплату</button>
+</form>
+<div id="salaryResult"></div>
+
 </main>
+<script src="script.js"></script>
 </body>
 </html>
