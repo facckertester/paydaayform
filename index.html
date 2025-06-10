@@ -1,20 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>Главная</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        createHeader("Index", true);
-    });
-</script>
+<header>
+  <h1>Главная</h1>
+  <div class="header-controls">
+    <label class="theme-switch">
+      <input type="checkbox" id="themeToggle">
+      <span class="slider"></span>
+    </label>
+    
+  </div>
+</header>
 <main>
-    <p>Контент страницы Index</p>
+  
+<a href="salary.html" class="button">Расчет ЗП</a>
+<a href="employees.html" class="button">Список сотрудников</a>
+<a href="report.html" class="button">Форма отчета</a>
+<a href="rules1.html" class="button">Правила 1</a>
+<a href="rules2.html" class="button">Правила 2</a>
+<a href="rules3.html" class="button">Правила 3</a>
+<a href="admin.html" class="button">Раздел для админов</a>
+
 </main>
+<script src="script.js"></script>
 </body>
 </html>
