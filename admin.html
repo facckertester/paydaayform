@@ -1,20 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-</head>
+<head><meta charset="UTF-8"><title>Раздел для админов</title><link rel="stylesheet" href="style.css"></head>
 <body>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        createHeader("Admin", false);
-    });
-</script>
+<header>
+  <h1>Раздел для админов</h1>
+  <div class="header-controls">
+    <label class="theme-switch">
+      <input type="checkbox" id="themeToggle">
+      <span class="slider"></span>
+    </label>
+    <button onclick="goBack()" class="back-btn">Назад</button>
+  </div>
+</header>
 <main>
-    <p>Контент страницы Admin</p>
+  <a href="admin_salary_table.html" class="button">Таблица расчета зп</a>
+  <a href="admin_payout.html" class="button">Форма выдачи зп</a>
+  <a href="sale_card.html" class="button">Sale Card</a>
 </main>
+<script src="script.js"></script>
 </body>
 </html>
