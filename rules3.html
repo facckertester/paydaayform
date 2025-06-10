@@ -1,20 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Rules3</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>Правила 3</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        createHeader("Rules3", false);
-    });
-</script>
+<header>
+  <h1>Правила 3</h1>
+  <div class="header-controls">
+    <label class="theme-switch">
+      <input type="checkbox" id="themeToggle">
+      <span class="slider"></span>
+    </label>
+    <button onclick="goBack()" class="back-btn">Назад</button>
+  </div>
+</header>
 <main>
-    <p>Контент страницы Rules3</p>
+  <p>Текст правил 3</p>
 </main>
+<script src="script.js"></script>
 </body>
 </html>
