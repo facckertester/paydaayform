@@ -3,73 +3,94 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: var(--bg);
-  color: var(--text);
   transition: background-color 0.3s, color 0.3s;
 }
-
-:root {
-  --bg: #ffffff;
-  --text: #000000;
-  --button-bg: #007bff;
-  --button-text: #ffffff;
-}
-
-body.dark {
-  --bg: #121212;
-  --text: #ffffff;
-  --button-bg: #1e90ff;
-}
-
 .container {
-  padding: 1rem;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
 }
-
 h1, h2 {
   text-align: center;
 }
-
 button {
-  display: block;
-  width: 100%;
-  max-width: 300px;
-  margin: 10px auto;
-  padding: 12px;
+  padding: 10px 20px;
+  margin: 10px 0;
   font-size: 16px;
-  border-radius: 8px;
-  border: none;
-  background-color: var(--button-bg);
-  color: var(--button-text);
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: background-color 0.3s;
 }
-
-button:hover {
-  background-color: #0056b3;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
-
-input[type="password"], input[type="text"] {
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+input {
   display: block;
   margin: 10px auto;
   padding: 10px;
-  width: 90%;
+  width: 80%;
   max-width: 300px;
 }
-
 .theme-toggle {
   position: fixed;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 20px;
   z-index: 1000;
 }
-
-@media screen and (max-width: 600px) {
-  h1, h2 {
-    font-size: 1.5rem;
-  }
-  button {
-    font-size: 14px;
-    padding: 10px;
-  }
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+.theme-switch input {
+  display:none;
+}
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+  border-radius: 34px;
+}
+.slider:before {
+  background-color: white;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.navbar a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
 }
