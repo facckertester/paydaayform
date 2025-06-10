@@ -1,38 +1,37 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const themeToggle = document.getElementById("theme-toggle");
-    const currentTheme = localStorage.getItem("theme");
 
-    if (currentTheme === "dark") {
-        document.body.classList.add("dark");
-        themeToggle.checked = true;
-    }
-
-    themeToggle.addEventListener("change", () => {
-        document.body.classList.toggle("dark");
-        localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
-    });
-});
-
-function getSalary() {
-    const name = document.getElementById("name").value.trim();
-    const id = document.getElementById("id").value.trim();
-
-    if (!name || !id) {
-        alert("Введите имя и ID");
-        return;
-    }
-
-    fetch("https://script.google.com/macros/s/AKfycbzJwiw833DGXjiS7gH3vfLR4VIN3u1m1-qPpLP_LS3jPFaQ8qYNXSIqLFBK4z9UHVCC/exec", {
-        method: "POST",
-        body: JSON.stringify({ name, id }),
-        headers: { "Content-Type": "application/json" }
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById("result").innerHTML = data.html || "Нет данных";
-    })
-    .catch(error => {
-        console.error("Ошибка:", error);
-        document.getElementById("result").innerText = "Произошла ошибка при получении данных.";
-    });
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
 }
+
+function applyStoredTheme() {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+}
+
+function createHeader(pageTitle, isMainPage) {
+    const header = document.createElement('header');
+    const title = document.createElement('h1');
+    title.textContent = pageTitle;
+    header.appendChild(title);
+
+    const toggle = document.createElement('label');
+    toggle.innerHTML = '<input type="checkbox" onchange="toggleTheme()"> Тема';
+    header.appendChild(toggle);
+
+    if (!isMainPage) {
+        const back = document.createElement('button');
+        back.textContent = 'Назад';
+        back.className = 'back-button';
+        back.onclick = () => history.back();
+        header.appendChild(back);
+    }
+
+    document.body.prepend(header);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    applyStoredTheme();
+});
