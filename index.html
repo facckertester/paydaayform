@@ -1,1 +1,41 @@
-<!-- index.html content here -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Главная</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Главная страница</h1>
+    <label class="theme-switch">
+      <input type="checkbox" id="theme-toggle" />
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <main>
+    <section>
+      <h2>Полезное</h2>
+      <button onclick="location.href='salary.html'">Расчет ЗП</button>
+      <button onclick="location.href='employees.html'">Список сотрудников</button>
+      <button onclick="location.href='report.html'">Форма отчета отработанного дня</button>
+    </section>
+    <section>
+      <h2>Правила</h2>
+      <button onclick="location.href='rules1.html'">Правила 1</button>
+      <button onclick="location.href='rules2.html'">Правила 2</button>
+      <button onclick="location.href='rules3.html'">Правила 3</button>
+    </section>
+    <section>
+      <h2>Раздел для Админов</h2>
+      <button onclick="location.href='admin_salary_table.html'">Таблица расчета ЗП</button>
+      <button onclick="location.href='admin_payout.html'">Форма выдачи ЗП</button>
+      <button onclick="location.href='sale_card.html'">Sale Card</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
