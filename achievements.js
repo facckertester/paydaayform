@@ -1,1 +1,0 @@
-document.getElementById('achievements').innerHTML = 'Загрузка... (фейковая заглушка пока)';
