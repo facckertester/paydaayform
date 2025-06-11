@@ -1,1 +1,0 @@
-<!-- script.js - placeholder content, будет заменено настоящим -->
