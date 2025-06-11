@@ -10,11 +10,14 @@ function navigate(path) {
 
 function checkAdminAccess() {
     const pass = document.getElementById('admin-password').value;
+    const panel = document.getElementById('admin-panel');
+    const errorMessage = document.getElementById('error-message');
+
     if (pass === '2808') {
-        document.getElementById('admin-blur').classList.add('active');
-        document.getElementById('admin-panel').style.display = 'flex';
+        panel.classList.add('active');
+        errorMessage.textContent = '';
     } else {
-        alert('Неверный пароль');
+        errorMessage.textContent = 'Неверный пароль. Попробуйте снова.';
     }
 }
 
