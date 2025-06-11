@@ -30,5 +30,22 @@
 </div>
 </main>
 <script src="script.js"></script>
-</body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const salaryButton = document.getElementById("salary-btn");
+    const employeesButton = document.getElementById("employees-btn");
+
+    if (salaryButton) {
+        salaryButton.addEventListener("click", function () {
+            window.location.href = "pages/salary.html";
+        });
+    }
+
+    if (employeesButton) {
+        employeesButton.addEventListener("click", function () {
+            window.location.href = "pages/employees.html";
+        });
+    }
+});
+</script></body>
 </html>
