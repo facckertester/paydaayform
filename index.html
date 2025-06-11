@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Главная</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="top-bar">
+        <button id="theme-toggle">🌙</button>
+    </div>
+    <main class="container">
+        <button onclick="navigate('pages/salary.html')">Расчет ЗП</button>
+        <button onclick="navigate('pages/employees.html')">Список сотрудников</button>
+        <button onclick="navigate('pages/form.html')">Заполнение формы</button>
+        <button onclick="window.open('ССЫЛКА_НА_ПРАВИЛО_1', '_self')">Правила 1</button>
+        <button onclick="window.open('ССЫЛКА_НА_ПРАВИЛО_2', '_self')">Правила 2</button>
+        <button onclick="window.open('ССЫЛКА_НА_ПРАВИЛО_3', '_self')">Правила 3</button>
+        <div class="admin-section" id="admin-blur">
+            <input type="password" id="admin-password" placeholder="Пароль для доступа" />
+            <button onclick="checkAdminAccess()">Войти</button>
+            <div id="admin-panel" style="display: none;">
+                <button onclick="window.open('ССЫЛКА_НА_ВЫДАЧУ_ЗП', '_self')">Выдать зарплату</button>
+                <button onclick="window.open('ССЫЛКА_НА_ТАБЛИЦУ_ЗП', '_self')">Таблица расчета ЗП</button>
+                <button onclick="window.open('ССЫЛКА_НА_СКИДКУ', '_self')">Скидочная карта</button>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
