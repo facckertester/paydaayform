@@ -1,130 +1,131 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Формоотчет отработанного дня</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="glass-panel">
+  <div class="glass-container">
     <h1>Формоотчет отработанного дня</h1>
-    <input type="password" id="password" placeholder="Введите пароль формы" />
-    <button onclick="checkPassword()">Продолжить</button>
 
-    <form id="main-form" style="display: none" onsubmit="submitForm(event)">
-      <div class="field">
-        <label>Дата
-          <span class="tooltip" title="1. Укажите сегодняшнюю дату. 2. Если заполняете за предыдущий день — укажите расчетный день.">ℹ</span>
-        </label>
-        <input type="date" name="date" required />
+    <form id="workForm">
+      <div class="form-group">
+        <label>Введите пароль формы</label>
+        <input type="password" id="formPassword" required />
+        <button type="button" class="tip-btn" title="Введите пароль, чтобы разблокировать форму">!</button>
       </div>
 
-      <div class="field">
-        <label>Имя
-          <span class="tooltip" title="1. Указывайте имя как в списке. 2. Соблюдайте заглавные/строчные буквы. 3. Пробел только между именем и первой буквой фамилии.">ℹ</span>
-        </label>
-        <input type="text" name="name" pattern="^[А-ЯЁ][а-яё]+(\s[а-я])?$" required />
-      </div>
+      <div id="formFields" style="display: none;">
+        <div class="form-group">
+          <label>Дата</label>
+          <input type="date" id="date" required />
+          <button type="button" class="tip-btn" title="1. Укажите сегодняшнюю дату
+2. Если за прошлый день — расчетную дату">!</button>
+        </div>
 
-      <div class="field">
-        <label>ID
-          <span class="tooltip" title="Ваш ID как в списке. Указывайте без лишних пробелов.">ℹ</span>
-        </label>
-        <input type="text" name="id" pattern="^(00[1-9]|0[1-2][0-9]|030)[ЧО]|111|222|333|444|555$" required />
-      </div>
+        <div class="form-group">
+          <label>Имя</label>
+          <input type="text" id="name" pattern="[А-ЯЁ][а-яё]+( [а-я])?" required />
+          <button type="button" class="tip-btn" title="1. Укажите имя строго по списку
+2. Соблюдайте регистр
+3. Фамилию — только первую букву, маленькая">!</button>
+        </div>
 
-      <div class="field">
-        <label>Город
-          <span class="tooltip" title="Выберите город, в котором вы работали.">ℹ</span>
-        </label>
-        <select name="city" required>
-          <option value="">--Выберите город--</option>
-          <option>Челябинск</option>
-          <option>Озерск</option>
-        </select>
-      </div>
+        <div class="form-group">
+          <label>ID</label>
+          <input type="text" id="personalId" required />
+          <button type="button" class="tip-btn" title="Ваш персональный ID. Укажите строго по списку.">!</button>
+        </div>
 
-      <div class="field">
-        <label>Точка
-          <span class="tooltip" title="Выберите из списка точку, на которой вы работали.">ℹ</span>
-        </label>
-        <select name="point" required>
-          <optgroup label="Челябинск">
-            <option>Вата+Морж ЧБ</option>
-            <option>Молочка ЧБ</option>
-            <option>Кофе стакан ЧБ</option>
-            <option>Кофе будка ЧБ</option>
-            <option>Шашлык ЧБ</option>
-          </optgroup>
-          <optgroup label="Озерск">
-            <option>Лопник ОЗ</option>
-            <option>Лабиринт ОЗ</option>
-            <option>Тир ОЗ</option>
-            <option>Вата+Морж ОЗ</option>
-            <option>Машинки ОЗ</option>
-            <option>Батут ОЗ</option>
-            <option>Кенгуру ОЗ</option>
-          </optgroup>
-          <optgroup label="Зима">
-            <option disabled>wintermultiPOS</option>
-          </optgroup>
-        </select>
-      </div>
+        <div class="form-group">
+          <label>Город</label>
+          <select id="city" required>
+            <option value="">Выберите</option>
+            <option>Челябинск</option>
+            <option>Озерск</option>
+          </select>
+          <button type="button" class="tip-btn" title="Выберите город, в котором вы работали.">!</button>
+        </div>
 
-      <div class="field">
-        <label>Часы
-          <span class="tooltip" title="Укажите количество отработанных вами часов.">ℹ</span>
-        </label>
-        <input type="number" name="hours" min="0" max="12" required />
-      </div>
+        <div class="form-group">
+          <label>Точка</label>
+          <select id="point" required>
+            <optgroup label="Челябинск">
+              <option>Вата+Морж ЧБ</option>
+              <option>Молочка ЧБ</option>
+              <option>Кофе стакан ЧБ</option>
+              <option>Кофе будка ЧБ</option>
+              <option>Шашлык ЧБ</option>
+            </optgroup>
+            <optgroup label="Озерск">
+              <option>Лопник ОЗ</option>
+              <option>Лабиринт ОЗ</option>
+              <option>Тир ОЗ</option>
+              <option>Вата+Морж ОЗ</option>
+              <option>Машинки ОЗ</option>
+              <option>Батут ОЗ</option>
+              <option>Кенгуру ОЗ</option>
+            </optgroup>
+            <optgroup label="Зима">
+              <option disabled>wintermultiPOS</option>
+            </optgroup>
+          </select>
+          <button type="button" class="tip-btn" title="Выберите из списка точку, на которой вы работали.">!</button>
+        </div>
 
-      <div class="field">
-        <label>Касса
-          <span class="tooltip" title="Укажите вашу кассу.">ℹ</span>
-        </label>
-        <input type="number" name="cash" min="0" max="100000" required />
-      </div>
+        <div class="form-group">
+          <label>Часы</label>
+          <input type="number" id="hours" min="0" max="12" required />
+          <button type="button" class="tip-btn" title="Укажите количество отработанных вами часов.">!</button>
+        </div>
 
-      <div class="field">
-        <label>Кассовая прибыль</label>
-        <select name="profit" required>
-          <option>Кассовая прибыль</option>
-        </select>
-      </div>
+        <div class="form-group">
+          <label>Касса</label>
+          <input type="number" id="cash" min="0" max="100000" required />
+          <button type="button" class="tip-btn" title="Укажите вашу кассу.">!</button>
+        </div>
 
-      <div class="field">
-        <label>Наличка (Перевод)</label>
-        <select name="payment" required>
-          <option>Наличка(Перевод)</option>
-        </select>
-      </div>
+        <div class="form-group">
+          <label>Кассовая прибыль</label>
+          <select id="cashProfit" required>
+            <option selected>Кассовая прибыль</option>
+          </select>
+        </div>
 
-      <div class="field">
-        <label>Закупка продуктов</label>
-        <select name="purchase" required>
-          <option>Закупка продуктов</option>
-        </select>
-      </div>
+        <div class="form-group">
+          <label>Наличка/Перевод</label>
+          <select id="paymentType" required>
+            <option selected>Наличка(Перевод)</option>
+          </select>
+        </div>
 
-      <div class="field">
-        <label>Закупка продуктов (Сумма)
-          <span class="tooltip" title="1. Укажите сумму закупки со знаком минус. 2. Если не было, укажите 0.">ℹ</span>
-        </label>
-        <input type="number" name="purchase_sum" min="-100000" max="0" required />
-      </div>
+        <div class="form-group">
+          <label>Закупка продуктов</label>
+          <select id="productPurchase" required>
+            <option selected>Закупка продуктов</option>
+          </select>
+        </div>
 
-      <div class="field">
-        <label>Комментарий
-          <span class="tooltip" title="Опишите всё, что выходит за рамки обычного.">ℹ</span>
-        </label>
-        <textarea name="comment" rows="3"></textarea>
-      </div>
+        <div class="form-group">
+          <label>Закупка продуктов (Сумма)</label>
+          <input type="number" id="purchaseAmount" min="-100000" max="0" required />
+          <button type="button" class="tip-btn" title="1. Укажите сумму со знаком минус.
+2. Если не было — укажите 0.">!</button>
+        </div>
 
-      <button type="submit">Отправить форму</button>
+        <div class="form-group">
+          <label>Комментарий</label>
+          <textarea id="comment" placeholder="Необязательное поле"></textarea>
+          <button type="button" class="tip-btn" title="Пишите всё, что выделяется из нормы.">!</button>
+        </div>
+
+        <button type="submit" class="submit-btn">Отправить форму</button>
+      </div>
     </form>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
