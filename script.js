@@ -1,51 +1,47 @@
-
-document.getElementById("workForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const data = {
-    timestamp: new Date().toLocaleString(),
-    date: document.getElementById("date").value,
-    name: document.getElementById("name").value.trim(),
-    id: document.getElementById("personalId").value.trim(),
-    point: document.getElementById("point").value,
-    city: document.getElementById("city").value,
-    hours: document.getElementById("hours").value,
-    cashProfit: document.getElementById("cashProfit").value,
-    cash: document.getElementById("cash").value,
-    purchaseType: document.getElementById("productPurchase").value,
-    purchaseAmount: document.getElementById("purchaseAmount").value,
-    paymentType: document.getElementById("paymentType").value,
-    comment: document.getElementById("comment").value.trim()
-  };
-
-  // Проверка обязательных полей
-  for (let key in data) {
-    if (key !== "comment" && !data[key]) {
-      alert("Заполните все поля!");
-      return;
+document.getElementById("checkPassword").onclick = function () {
+    const pwd = document.getElementById("formPassword").value;
+    if (pwd === "1234") {
+        document.getElementById("formPassword").parentElement.style.display = "none";
+        document.getElementById("formFields").classList.remove("hidden");
+    } else {
+        alert("Неверный пароль");
     }
-  }
+};
 
-  fetch("https://script.google.com/macros/s/AKfycbxzGyHsNQcFCH28DX4Q-R3XpiSo89LM24ECSmpiPUnJXoO4UI5mQfXVkh-nKl1vYriU/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data)
-  });
+document.getElementById("reportForm").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  alert("Форма отправлена!");
-  document.getElementById("workForm").reset();
-  document.getElementById("formFields").style.display = "none";
-});
+    const data = {
+        timestamp: new Date().toLocaleString(),
+        date: document.getElementById("date").value,
+        name: document.getElementById("name").value,
+        id: document.getElementById("id").value,
+        location: document.getElementById("location").value,
+        city: document.getElementById("city").value,
+        hours: document.getElementById("hours").value,
+        profit: document.getElementById("profit").value,
+        cash: document.getElementById("cash").value,
+        purchase: document.getElementById("purchase").value,
+        purchaseAmount: document.getElementById("purchaseAmount").value,
+        paytype: document.getElementById("paytype").value,
+        comment: document.getElementById("comment").value,
+    };
 
-// Пароль доступа
-document.getElementById("formPassword").addEventListener("change", function () {
-  if (this.value === "1234") {
-    document.getElementById("formFields").style.display = "block";
-  } else {
-    alert("Неверный пароль!");
-    this.value = "";
-  }
+    for (let key in data) {
+        if (key !== "comment" && (!data[key] || data[key] === "")) {
+            alert("Заполните все поля");
+            return;
+        }
+    }
+
+    fetch("https://script.google.com/macros/s/AKfycbxzGyHsNQcFCH28DX4Q-R3XpiSo89LM24ECSmpiPUnJXoO4UI5mQfXVkh-nKl1vYriU/exec", {
+        method: "POST",
+        body: JSON.stringify(data),
+    })
+    .then((res) => res.text())
+    .then((res) => {
+        alert("Форма успешно отправлена!");
+        document.getElementById("reportForm").reset();
+    })
+    .catch((err) => alert("Ошибка отправки: " + err));
 });
