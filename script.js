@@ -45,3 +45,10 @@ document.getElementById("reportForm").addEventListener("submit", function (e) {
     })
     .catch((err) => alert("Ошибка отправки: " + err));
 });
+
+// ✅ Показываем всплывающую подсказку при клике (!)
+document.querySelectorAll('.tooltip-icon').forEach(function (el) {
+    el.addEventListener('click', function () {
+        el.classList.toggle('show-tooltip');
+    });
+});
