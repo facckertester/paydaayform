@@ -35,7 +35,7 @@ document.getElementById("reportForm").addEventListener("submit", function (e) {
         }
     }
 
-    fetch("https://script.google.com/macros/s/AKfycbxzynboPO3ZrBtO1zrutL8feRxtG1WsBIJZjZNHeTy0A6In3SzN66OT3KBM5kpzZmqi/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbyf6mg8jktMkiDubYhfLrTNInV0XWF3Kph-0i2G7yj8uu7z-uKjXK378h4RfexV3O8W/exec", {
         method: "POST",
         body: JSON.stringify(data),
     })
