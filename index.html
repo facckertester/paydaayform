@@ -13,40 +13,49 @@
 
             <div class="input-group">
                 <input type="password" id="formPassword" placeholder="Введите пароль формы">
+            </div>
+            <div class="input-group">
                 <button type="button" id="checkPassword">Продолжить</button>
             </div>
 
             <div id="formFields" class="hidden">
+
                 <div class="input-row">
-                    <label for="date">Дата</label>
+                    <label for="date">Дата
+                        <span class="tooltip-icon" data-tooltip="1. Укажите сегодняшнюю дату. 2. Если заполняете за предыдущий день — указывайте расчетный день.">!</span>
+                    </label>
                     <input type="date" id="date" required>
-                    <span class="tooltip-icon" data-tooltip="1. Укажите сегодняшнюю дату. 2. Если заполняете за предыдущий день — указывайте расчетный день.">!</span>
                 </div>
 
                 <div class="input-row">
-                    <label for="name">Имя</label>
+                    <label for="name">Имя
+                        <span class="tooltip-icon" data-tooltip="Это ваше имя...">!</span>
+                    </label>
                     <input type="text" id="name" required pattern="^[А-ЯЁ][а-яё]+(\s[а-я])?$" title="С заглавной буквы. Пробел между именем и первой буквой фамилии.">
-                    <span class="tooltip-icon" data-tooltip="Это ваше имя...">!</span>
                 </div>
 
                 <div class="input-row">
-                    <label for="id">Персональный ID</label>
+                    <label for="id">Персональный ID
+                        <span class="tooltip-icon" data-tooltip="Ваш персональный ID...">!</span>
+                    </label>
                     <input type="text" id="id" required pattern="^(00[1-9]|0[1-2][0-9]|030)(Ч|О)$|^111$|^222$|^333$|^444$|^555$">
-                    <span class="tooltip-icon" data-tooltip="Ваш персональный ID...">!</span>
                 </div>
 
                 <div class="input-row">
-                    <label for="city">Город</label>
+                    <label for="city">Город
+                        <span class="tooltip-icon" data-tooltip="Выберите город, в котором вы работали.">!</span>
+                    </label>
                     <select id="city" required>
                         <option value="">Выберите</option>
                         <option>Челябинск</option>
                         <option>Озерск</option>
                     </select>
-                    <span class="tooltip-icon" data-tooltip="Выберите город, в котором вы работали.">!</span>
                 </div>
 
                 <div class="input-row">
-                    <label for="location">Точка</label>
+                    <label for="location">Точка
+                        <span class="tooltip-icon" data-tooltip="Выберите из списка точку, на которой вы работали.">!</span>
+                    </label>
                     <select id="location" required>
                         <option value="">Выберите</option>
                         <optgroup label="Челябинск">
@@ -69,19 +78,20 @@
                             <option>wintermultiPOS</option>
                         </optgroup>
                     </select>
-                    <span class="tooltip-icon" data-tooltip="Выберите из списка точку, на которой вы работали.">!</span>
                 </div>
 
                 <div class="input-row">
-                    <label for="hours">Часы</label>
+                    <label for="hours">Часы
+                        <span class="tooltip-icon" data-tooltip="Укажите количество отработанных вами часов.">!</span>
+                    </label>
                     <input type="number" id="hours" min="0" max="12" required>
-                    <span class="tooltip-icon" data-tooltip="Укажите количество отработанных вами часов.">!</span>
                 </div>
 
                 <div class="input-row">
-                    <label for="cash">Касса</label>
+                    <label for="cash">Касса
+                        <span class="tooltip-icon" data-tooltip="Укажите вашу кассу.">!</span>
+                    </label>
                     <input type="number" id="cash" min="0" max="100000" required>
-                    <span class="tooltip-icon" data-tooltip="Укажите вашу кассу.">!</span>
                 </div>
 
                 <div class="input-row">
@@ -106,15 +116,17 @@
                 </div>
 
                 <div class="input-row">
-                    <label for="purchaseAmount">Закупка продуктов (Сумма)</label>
+                    <label for="purchaseAmount">Закупка продуктов (Сумма)
+                        <span class="tooltip-icon" data-tooltip="Укажите сумму со знаком минус. Если не было — укажите 0.">!</span>
+                    </label>
                     <input type="number" id="purchaseAmount" min="-100000" max="0" required>
-                    <span class="tooltip-icon" data-tooltip="Укажите сумму со знаком минус. Если не было — укажите 0.">!</span>
                 </div>
 
                 <div class="input-row">
-                    <label for="comment">Комментарий</label>
+                    <label for="comment">Комментарий
+                        <span class="tooltip-icon" data-tooltip="Пишите, если что-то выбивается из нормы.">!</span>
+                    </label>
                     <textarea id="comment" maxlength="500" placeholder="Ограничение 500 символов..."></textarea>
-                    <span class="tooltip-icon" data-tooltip="Пишите, если что-то выбивается из нормы.">!</span>
                 </div>
 
                 <button type="submit" id="submitButton">Отправить форму</button>
