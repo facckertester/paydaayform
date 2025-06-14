@@ -1,3 +1,4 @@
+
 document.getElementById("checkPassword").onclick = function () {
     const pwd = document.getElementById("formPassword").value;
     if (pwd === "1234") {
@@ -39,16 +40,31 @@ document.getElementById("reportForm").addEventListener("submit", function (e) {
         body: JSON.stringify(data),
     })
     .then((res) => res.text())
-    .then((res) => {
+    .then(() => {
         alert("Форма успешно отправлена!");
         document.getElementById("reportForm").reset();
     })
     .catch((err) => alert("Ошибка отправки: " + err));
 });
 
-// ✅ Показываем всплывающую подсказку при клике (!)
-document.querySelectorAll('.tooltip-icon').forEach(function (el) {
-    el.addEventListener('click', function () {
-        el.classList.toggle('show-tooltip');
+// Подсказки (!)
+document.querySelectorAll('.tooltip-icon').forEach((icon) => {
+    icon.setAttribute('tabindex', '-1');
+
+    icon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+
+        document.querySelectorAll('.tooltip-icon').forEach((el) => {
+            if (el !== icon) el.classList.remove('show-tooltip');
+        });
+
+        icon.classList.toggle('show-tooltip');
+    });
+});
+
+document.addEventListener('click', () => {
+    document.querySelectorAll('.tooltip-icon').forEach((icon) => {
+        icon.classList.remove('show-tooltip');
     });
 });
