@@ -118,7 +118,7 @@ button:hover {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  max-width: 300px;
+  max-width: 450px;
   background: rgba(20, 20, 20, 0.6);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
