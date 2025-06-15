@@ -1,4 +1,4 @@
-[16.06.2025 00:09] D0 91 D0 BE D0 B3: document.getElementById("checkPassword").onclick = function () {
+document.getElementById("checkPassword").onclick = function () {
     const pwd = document.getElementById("formPassword").value;
     if (pwd === "1234") {
         document.getElementById("formPassword").parentElement.style.display = "none";
