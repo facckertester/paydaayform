@@ -1,4 +1,4 @@
-document.getElementById("checkPassword").onclick = function () {
+[16.06.2025 00:09] D0 91 D0 BE D0 B3: document.getElementById("checkPassword").onclick = function () {
     const pwd = document.getElementById("formPassword").value;
     if (pwd === "1234") {
         document.getElementById("formPassword").parentElement.style.display = "none";
@@ -10,6 +10,9 @@ document.getElementById("checkPassword").onclick = function () {
 
 document.getElementById("reportForm").addEventListener("submit", function (e) {
     e.preventDefault();
+
+    const submitButton = document.querySelector("#reportForm button[type='submit']");
+    if (!submitButton) return;
 
     const data = {
         timestamp: new Date().toLocaleString(),
@@ -34,6 +37,11 @@ document.getElementById("reportForm").addEventListener("submit", function (e) {
         }
     }
 
+    // Блокируем кнопку
+    submitButton.disabled = true;
+    const originalText = submitButton.textContent;
+    submitButton.textContent = "Отправка...";
+
     fetch("https://script.google.com/macros/s/AKfycbyf6mg8jktMkiDubYhfLrTNInV0XWF3Kph-0i2G7yj8uu7z-uKjXK378h4RfexV3O8W/exec", {
         method: "POST",
         body: JSON.stringify(data),
@@ -43,7 +51,14 @@ document.getElementById("reportForm").addEventListener("submit", function (e) {
         alert("Форма успешно отправлена!");
         document.getElementById("reportForm").reset();
     })
-    .catch((err) => alert("Ошибка отправки: " + err));
+    .catch((err) => {
+        alert("Ошибка отправки: " + err);
+    })
+    .finally(() => {
+        // Разблокируем кнопку
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+    });
 });
 
 // Подсказки (!)
