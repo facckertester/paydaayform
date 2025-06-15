@@ -29,14 +29,14 @@ document.getElementById("reportForm").addEventListener("submit", function (e) {
         paytype: document.getElementById("paytype").value,
         comment: document.getElementById("comment").value,
     };
-console.log("ETO PERED RETURN")
+console.log("ETO PERED RETURN");
     for (let key in data) {
         if (key !== "comment" && (!data[key] || data[key] === "")) {
             alert("Заполните все поля");
             return;
         }
     }
-console.log("ETO PERED BLOKOM KNOPKI")
+console.log("ETO PERED BLOKOM KNOPKI");
     // Блокируем кнопку
     submitButton.disabled = true;
     const originalText = submitButton.textContent;
